@@ -116,7 +116,7 @@ Machines with multiple interfaces have a different MAC address for each interfac
 
 - 2.1.3. By consulting the ARP table it is possible to check if the MAC addresses are correct. To change the ARP table in a machine, you can use the packit command (`man packit`):
 
-    $ sudo apt install packit #in VM3
+    ``` $ sudo apt install packit ```
     
 To change the ARP table of VM2, from VM3, run the following (in VM3):
 
