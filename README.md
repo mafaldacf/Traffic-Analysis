@@ -18,11 +18,20 @@ For this assignment you will need the 2nd and 3rd machines (VM2 and VM3) you cre
 
 __Also make sure that the machines are configured as in last week's lab!__
 
-If you need to change the hostname and name resolution, change it in files /etc/hostname and /etc/hosts.
-Most commands used throughout this tutorial use `sudo`.
-It is assumed that VM2 is 192.168.1.254 and VM3 is 192.168.1.1, from the previous laboratory assignment.
+_Notes:_
+
+- It is assumed that VM2 is 192.168.1.254 and VM3 is 192.168.1.1, from the previous laboratory assignment.
+- If you need to change the hostname and name resolution, change it in files /etc/hostname and /etc/hosts.
+- Most commands used throughout this tutorial use `sudo`.
+- If there are repeated MAC addresses, use the following command in the machine where you want to change the MAC address, for the adapter that is repeated:
+
+```
+$ sudo /sbin/ip link set enp0s3 address 00:00:00:00:00:11
+```
 
 ## 1. Listening to the network
+
+We will experiment with three tools: tcpdump, Wireshark and nmap.
 
 ### 1.1. Tcpdump
 
@@ -42,7 +51,7 @@ If you need to install ssh-server in VM4 run:
 
     $ sudo apt install openssh-server
 
-### 1.2. Ethereal (Wireshark)
+### 1.2. Wireshark
 
 The program wireshark has a similar functionality to that of tcpdump but provides a graphical user interface.
 
@@ -87,6 +96,8 @@ The nmap tool provides information from remote machines (`$ man nmap` for more i
 
 ## 2. Vulnerabilities in TCP / IP
 
+In this section we will experiment with ARP redirect, RST hijacking, and redirect ICMP response.
+
 ### 2.1. ARP redirect
 
 The ARP table (`$ man arp` for more information) maps IP addresses to MAC addresses. It is possible to change this table to redirect packets to other machines. This vulnerability is important in situations where we have a network with a switch, which makes it impossible to read packets addressed to other machines with tcpdump. To change the ARP table of a remote machine do as follows:
@@ -115,7 +126,7 @@ When VM2 receives this packet, it will assume that the MAC address of VM4 is the
 
     $ arp -a
 
-before and after running the `packit` command above. 
+before and after running the `packit` command above.
 
 - 2.1.4. After changing the ARP table in VM2, run
 
@@ -130,7 +141,7 @@ If we do the same for 192.168.1.4 (changing the MAC address of VM2 to that of VM
 
 ### 2.2. RST Hijacking
 
-The purpose of this attack is to ReSeT a TCP connection.
+The purpose of this attack is to _ReSeT_ a TCP connection.
 
 - 2.2.1. On VM4, check the sequence number of acknowledge and the port used by VM2:
 
@@ -162,6 +173,36 @@ This attack allows a ping response to be sent to a machine that did not make the
 
         $ scapy
         >> sr(IP(dst='192.168.1.254', src='<IP of a different machine>')/ICMP())
+
+### 2.4 To learn more
+
+If you want to learn more, there are more tasks available in the [SEED Labs Networking Labs](https://seedsecuritylabs.org/Labs_16.04/Networking/).
+
+Refer to the [description of SEED Labs TCP/IP attack lab](http://www.cis.syr.edu/~wedu/seed/Labs_16.04/Networking/TCP_Attacks/TCP_Attacks.pdf)
+
+- Task 1: SYN Flooding Attack, and
+- Task 4: TCP Session Hijacking.
+
+## 3 OpenVAS _(optional)_
+
+OpenVAS is a vulnerability scanner tool, and it can perform a security analysis on a remote machine, by scanning for vulnerabilities.
+In typical operation, OpenVAS begins by doing a port scan to determine which ports are open on the target and then tries various exploits on the open ports.
+
+To install OpenVAS, [follow these instructions](https://hackertarget.com/openvas-9-install-ubuntu-1604/).
+
+Before start using OpenVAS execute the following command to verify your IP address:
+
+```
+hostname -I
+```
+
+Then go to `https://<your IP address>:4000` and login using the default credentials `admin:admin`.
+
+<img src="./openvas.png" alt="alt text" width="300">
+
+*Figure. OpenVAS main screen with the hostname of the machine we want to test.*
+
+Fill the `IP Address or hostname` field with the IP of the machine you want to analyze (for example, target VM2 which is at 192.168.1.254).
 
 **Acknowledgments**
 
