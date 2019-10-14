@@ -114,8 +114,10 @@ The ARP table (`$ man arp` for more information) maps IP addresses to MAC addres
 
 Machines with multiple interfaces have a different MAC address for each interface. Make sure you check the correct one.
 
-- 2.1.3. By consulting the ARP table it is possible to check if the MAC addresses are correct. To change the ARP table in a machine, you can use the packit command (`man packit`).
+- 2.1.3. By consulting the ARP table it is possible to check if the MAC addresses are correct. To change the ARP table in a machine, you can use the packit command (`man packit`):
 
+    $ sudo apt install packit #in VM3
+    
 To change the ARP table of VM2, from VM3, run the following (in VM3):
 
     $ sudo packit -t ARP -a 1 -x 192.168.1.4  -y 192.168.1.254 -Y <MAC of machine 192.168.1.254/VM2> -X <MAC of machine 192.168.1.1/VM3>
