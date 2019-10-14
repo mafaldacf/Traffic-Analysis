@@ -248,7 +248,7 @@ hostname -I
 Then go to `https://<your IP address>:4000 and login using the default credentials admin, admin.
 
 
-<img src="./openvas.png" alt="alt text" width="300">
+<img src="./openvas.png" alt="alt text" width="600">
 
 *Figure. OpenVAS main screen with the hostname of the machine we want to test.*
 
