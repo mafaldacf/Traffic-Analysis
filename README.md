@@ -36,7 +36,7 @@ We will experiment with three tools: tcpdump, Wireshark and nmap.
 ### 1.1. Tcpdump
 
 The program tcpdump allows you to listen to the local network (`$ man tcpdump` for more information).
-
+Make sure you "Allow All" in the advanced section of the network settings in Virtual Box, for the VM that you want to use to capture traffic.
 Run tcpdump in VM2 and detect the packet ICMP (using `ping -c 1`) from VM3 to VM4. To identify the header, the IP address, the MAC address and the protocol in use:
 
     $ sudo tcpdump -i enp0s8 –X -XX dst host <IP destination>
