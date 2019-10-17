@@ -12,7 +12,7 @@ Instituto Superior Técnico, Universidade de Lisboa
 
 ## 0. Setup
 
-For this assignment you will need the 2nd and 3rd machines (VM2 and VM3) you created in the last assignment. You will _also need to create a 4th machine_ (henceforth called VM4) and put it in the same network as machine VM2 and VM3. Simply cloning VM1 and changing its static IP to 192.168.1.4 should be enough. Remember to run:
+For this assignment you will need the 2nd and 3rd machines (VM2 and VM3) you created in the last assignment. You will _also need to create a 4th machine_ (henceforth called VM4) and put it in the same network as machine VM2 and VM3. Simply cloning VM1, connecting it to sw-2 instead of sw-1 and changing its static IP to 192.168.1.4 should be enough. Remember to run:
 
     $ sudo /etc/init.d/networking force-reload
 
