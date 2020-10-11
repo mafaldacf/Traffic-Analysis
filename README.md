@@ -94,7 +94,7 @@ The nmap tool provides information from remote machines (`$ man nmap` for more i
 
         $ nmap -O <IP from remote machine> 
 
-## 2. Vulnerabilities in TCP / IP
+## 2. Vulnerabilities in TCP/IP
 
 In this section we will experiment with ARP redirect, RST hijacking, and redirect ICMP response.
 
@@ -180,12 +180,12 @@ This attack allows a ping response to be sent to a machine that did not make the
 
 If you want to learn more, there are more tasks available in the [SEED Labs Networking Labs](https://seedsecuritylabs.org/Labs_16.04/Networking/).
 
-Refer to the [description of SEED Labs TCP/IP attack lab](http://www.cis.syr.edu/~wedu/seed/Labs_16.04/Networking/TCP_Attacks/TCP_Attacks.pdf)
+Refer to the [description of SEED Labs TCP/IP attack lab](https://seedsecuritylabs.org/Labs_16.04/PDF/TCP_Attacks.pdf)
 
 - Task 1: SYN Flooding Attack, and
 - Task 4: TCP Session Hijacking.
 
-## 3 OpenVAS _(optional)_
+## 3 OpenVAS
 
 OpenVAS is a vulnerability scanner tool, and it can perform a security analysis on a remote machine, by scanning for vulnerabilities.
 In typical operation, OpenVAS begins by doing a port scan to determine which ports are open on the target and then tries various exploits on the open ports.
