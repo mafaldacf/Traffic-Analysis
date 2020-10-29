@@ -196,6 +196,7 @@ To install OpenVAS:
 - Grab the OpenVAS container from the docker registry and start it up: https://hub.docker.com/r/mikesplain/openvas
 
 In your browser, type https://127.0.0.1
+
 Login using the following credentials:
 - Username: admin
 - Password: admin
