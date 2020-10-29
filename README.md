@@ -190,21 +190,21 @@ Refer to the [description of SEED Labs TCP/IP attack lab](https://seedsecurityla
 OpenVAS is a vulnerability scanner tool, and it can perform a security analysis on a remote machine, by scanning for vulnerabilities.
 In typical operation, OpenVAS begins by doing a port scan to determine which ports are open on the target and then tries various exploits on the open ports.
 
-To install OpenVAS, [follow these instructions](https://hackertarget.com/openvas-9-install-ubuntu-1604/).
+To install OpenVAS:
 
-Before start using OpenVAS execute the following command to verify your IP address:
+- Install docker on your host machine: https://docs.docker.com/engine/install/ubuntu/
+- Grab the OpenVAS container from the docker registry and start it up: https://hub.docker.com/r/mikesplain/openvas
 
-```
-hostname -I
-```
+In your browser, type https://127.0.0.1
+Login using the following credentials:
+- Username: admin
+- Password: admin
 
-Then go to `https://<your IP address>:4000` and login using the default credentials `admin:admin`.
+Once you are in, go to Scans > Tasks and open the Task Wizard.
 
-<img src="./openvas.png" alt="alt text" width="600">
+Fill the `IP Address or hostname` field with the IP of the machine you want to analyze.
 
-*Figure. OpenVAS main screen with the hostname of the machine we want to test.*
-
-Fill the `IP Address or hostname` field with the IP of the machine you want to analyze (for example, target VM2 which is at 192.168.1.254).
+In case you want to analyse VM2, for example, you should add a new network adapter and attatch it to "Bridged Adapter", then, in the VM tipe 'hostname -I' to discover your IP address.
 
 **Acknowledgments**
 
