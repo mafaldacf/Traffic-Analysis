@@ -205,11 +205,12 @@ Once you are in, go to Scans > Tasks and open the Task Wizard.
 
 Fill the `IP Address or hostname` field with the IP of the machine you want to analyze.
 
-In case you want to analyse VM2, for example, you should add a new network adapter and attatch it to "Bridged Adapter", then, in the VM tipe 'hostname -I' to discover your IP address.
+In case you want to analyse VM2, for example, you should add a new network adapter and attach it to "Bridged Adapter", then, in the VM type 'hostname -I' to discover your IP address.
 
 **Acknowledgments**
 
-Adapted by: Pedro Adão
+Adapted by: Pedro Adão  
+Open VAS Docker instructions: Vasco Guita
 
 ----
 
