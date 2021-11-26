@@ -12,7 +12,9 @@ Instituto Superior Técnico, Universidade de Lisboa
 
 ## 0. Setup
 
-For this assignment you will need the 2nd and 3rd machines (VM2 and VM3) you created in the last assignment. You will _also need to create a 4th machine_ (henceforth called VM4) and put it in the same network as machine VM2 and VM3. Simply cloning VM3 and changing its static IP to 192.168.1.4 should be enough. Remember to run:
+For this assignment you will need the 2nd and 3rd machines (VM2 and VM3) you created in the last assignment. You will _also need to create a 4th machine_ (henceforth called VM4) and put it in the same network as machine VM2 and VM3. Simply cloning VM3 and changing its static IP to 192.168.1.4 should be enough.
+After cloning, you should generate a new Mac address (on VirtualBox VM settings) for that machine, before starting the new VM.
+Remember to run:
 
     $ sudo /etc/init.d/networking force-reload
 
@@ -78,6 +80,8 @@ The program wireshark has a similar functionality to that of tcpdump but provide
 
 Question: Why can't you see the credentials of SSH when using tcpdump or wireshark? Try analysing an SSH connection using tcpdump as well.
 
+Sugestion: Look in Wireshark -> Follow -> TCP Stream (on a packet from the Telnet connection) to look at the traffic with a nicer presentation.
+
 ### 1.3. Nmap
 
 Nmap is an open source tool for network analysis and security auditing. Applying nmap to others' networks without proper authorization may constitute a crime.
@@ -132,8 +136,8 @@ before and after running the `packit` command above.
 
 - 2.1.4. After changing the ARP table in VM2, run
 
-        $ tcpdump -i enp0s3    # in VM3
-        $ tcpdump -i enp0s3    # in VM4
+        $ sudo tcpdump -i enp0s3    # in VM3
+        $ sudo tcpdump -i enp0s3    # in VM4
 
 and try to ping 192.168.1.4 from VM2. Are these packets going to VM3 or VM4?
 
