@@ -82,7 +82,7 @@ The program wireshark has a similar functionality to that of tcpdump but provide
 
 Question: Why can't you see the credentials of SSH when using tcpdump or wireshark?
 
-Sugestion: Look in Wireshark -> Follow -> TCP Stream (on a packet from the Telnet connection) to look at the traffic with a nicer presentation.
+Sugestion: Look in Wireshark -> Analyze -> Follow -> TCP Stream (on a packet from the Telnet connection) to look at the traffic with a nicer presentation.
 
 ### 1.3. Nmap
 
