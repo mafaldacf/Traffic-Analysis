@@ -38,16 +38,18 @@ We will experiment with three tools: tcpdump, Wireshark and nmap.
 ### 1.1. Tcpdump
 
 The program tcpdump allows you to listen to the local network (`$ man tcpdump` for more information).
-Make sure you "Allow All" in the advanced section of the network settings in Virtual Box, for the VM that you want to use to capture traffic.
+If needes, select "Allow All" in the advanced section of the network settings for promiscuous mode in Virtual Box, for the VM that you want to use to capture traffic.
 Run tcpdump in VM2 and detect the packet ICMP (using `ping -c 1`) from VM3 to VM4. To identify the header, the IP address, the MAC address and the protocol in use:
 
-    $ sudo tcpdump -i enp0s8 –X -XX dst host <IP destination>
+    $ sudo tcpdump -i enp0s8 -X -XX dst host <IP destination>
 
-- 1.1.1. Keeping tcpdump running, start a telnet connection between VM3 and VM4 (username: seed, password: dees). Read the username and password of the user. Observe that username and password appear letter by letter in different packets (the -i option selects the network interface).  
+- 1.1.1. Keeping tcpdump running, start a telnet connection between VM3 and VM4 (username: seed, password: dees). Read the username and password of the user. Observe that username and password appear letter by letter in different packets .  
 
-        $ sudo tcpdump -i enp0s8 –X dst host <IP destination>
+        $ telnet <IP destination>
 
 - 1.1.2. Keep tcpdump running and start a __ssh connection__ between VM3 and VM4. Observe that it is not possible to read the username or password.
+
+        $ ssh <IP destination>
 
 If you need to install ssh-server in VM4 run:
 
@@ -78,7 +80,7 @@ The program wireshark has a similar functionality to that of tcpdump but provide
     - ii. In the analyze menu do follow tcp stream to observe both the username and password.
   - c) `ssh`
 
-Question: Why can't you see the credentials of SSH when using tcpdump or wireshark? Try analysing an SSH connection using tcpdump as well.
+Question: Why can't you see the credentials of SSH when using tcpdump or wireshark?
 
 Sugestion: Look in Wireshark -> Follow -> TCP Stream (on a packet from the Telnet connection) to look at the traffic with a nicer presentation.
 
@@ -89,6 +91,9 @@ Nmap is an open source tool for network analysis and security auditing. Applying
 The nmap tool provides information from remote machines (`$ man nmap` for more information). To install it run
 
     $ sudo apt install nmap
+        or
+    $ sudo snap install nmap    
+    
 
 - 1.3.1. To obtain the open ports from a remote machine run:
 
@@ -96,7 +101,10 @@ The nmap tool provides information from remote machines (`$ man nmap` for more i
 
 - 1.3.2. To obtain the operating system from a remote machine run:
 
-        $ nmap -O <IP from remote machine> 
+        $ nmap -O <IP from remote machine>
+    If you get a dnet error, run the following command first:
+        $ sudo snap connnect nmap:network-control
+       
 
 ## 2. Vulnerabilities in TCP/IP
 
