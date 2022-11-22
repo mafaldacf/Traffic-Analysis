@@ -16,7 +16,7 @@ For this assignment you will need the 2nd and 3rd machines (VM2 and VM3) you cre
 After cloning, you should generate a new Mac address (on VirtualBox VM settings) for that machine, before starting the new VM.
 Remember to run:
 
-    $ sudo /etc/init.d/networking force-reload
+    $ sudo /etc/init.d/network-manager force-reload
 
 __Also make sure that the machines are configured as in last week's lab!__
 
