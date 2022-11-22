@@ -61,7 +61,7 @@ The program wireshark has a similar functionality to that of tcpdump but provide
 
 - 1.2.1. In VM2 run wireshark in command prompt.
 
-    $ sudo wireshark
+        $ sudo wireshark
 
 - 1.2.2. If you do not select the capturing interace when you start, go to the Capture -> Options menu;
 
@@ -103,6 +103,7 @@ The nmap tool provides information from remote machines (`$ man nmap` for more i
 
         $ nmap -O <IP from remote machine>
     If you get a dnet error, run the following command first:
+    
         $ sudo snap connnect nmap:network-control
        
 
