@@ -162,8 +162,8 @@ before and after running the `packit` command above. (To observe the MAC address
 
 - 2.1.4. After changing the ARP table in VM2, run
 
-        $ sudo tcpdump -i enp0s3    # in VM3
-        $ sudo tcpdump -i enp0s3    # in VM4
+        $ sudo tcpdump -i enp0s3    # in VM3, or enp0s8 if enabled instead
+        $ sudo tcpdump -i enp0s3    # in VM4, or enp0s8 if enabled instead
 
 and try to ping 192.168.1.4 from VM2.
 Are these packets going to VM3 or VM4?
@@ -190,6 +190,9 @@ The purpose of this attack is to _ReSeT_ a TCP connection.
         $ scapy
         >>> packet = IP(src='192.168.1.254', dst='192.168.1.1')/TCP(sport= <port>, dport=23, seq=<ack number>, flags='R')
         >>> send(packet)
+        
+The following image shows the last two packets received after the telnet login in VM2, and the correct port and ack number to use in the command above. 
+![Packets](packet.PNG)
 
 - 2.2.4. Check if connection is closed.
 
@@ -201,7 +204,7 @@ This attack allows a ping response to be sent to a machine that did not make the
 
 - 2.3.1. Run tcpdump on VM4 to spy the source and destination of the packets (recall that option -i selects the network interface).
 
-        $ sudo tcpdump “ip[9]=1”
+        $ sudo tcpdump "ip[9]=1"
 
 - 2.3.2. Send a ICMP packet with a wrong source:
 
@@ -210,9 +213,7 @@ This attack allows a ping response to be sent to a machine that did not make the
 
 ### 2.4 To learn more
 
-If you want to learn more, there are more tasks available in the [SEED Labs Networking Labs](https://seedsecuritylabs.org/Labs_16.04/Networking/).
-
-Refer to the [description of SEED Labs TCP/IP attack lab](https://seedsecuritylabs.org/Labs_16.04/PDF/TCP_Attacks.pdf)
+If you want to learn more, there are more tasks available in the [SEED Labs Networking Labs](https://seedsecuritylabs.org/Labs_20.04/Networking/).
 
 - Task 1: SYN Flooding Attack, and
 - Task 4: TCP Session Hijacking.
