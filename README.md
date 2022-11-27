@@ -158,7 +158,7 @@ To observe these attacks, in VM2 do:
 
     $ arp -a
 
-before and after running the `packit` command above.
+before and after running the `packit` command above. (To observe the MAC address in change you may need to temporarily disconnect VM4 from the internet, because it broadcasts this information correctly in regular intervals).
 
 - 2.1.4. After changing the ARP table in VM2, run
 
@@ -168,8 +168,8 @@ before and after running the `packit` command above.
 and try to ping 192.168.1.4 from VM2.
 Are these packets going to VM3 or VM4?
 
-Notice that machines broadcast this information in regular intervals so this change is only temporary.
-However, if this procedure is carried out at regular intervals (every 10 seconds, for example) all traffic from the 192.168.1.254 machine (VM2) to the machine at 192.168.1.4 (VM4) is redirected to 192.168.1.1 (which is VM3).
+Notice that machines broadcast this information in regular intervals so this change is only temporary. 
+However, if this procedure is carried out at regular intervals (every second, for example) all traffic from the 192.168.1.254 machine (VM2) to the machine at 192.168.1.4 (VM4) is redirected to 192.168.1.1 (which is VM3).
 
 If we do the same for 192.168.1.4 (changing the MAC address of VM2 to that of VM3) we can have VM3 receiving all packets between VM2 and VM4, and forward them after reading them.
 
