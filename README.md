@@ -191,7 +191,7 @@ The purpose of this attack is to _ReSeT_ a TCP connection.
         >>> packet = IP(src='192.168.1.254', dst='192.168.1.1')/TCP(sport= <port>, dport=23, seq=<ack number>, flags='R')
         >>> send(packet)
         
-The following image shows the last two packets received in the TCP dump in VM4 after the telnet login in VM2, and the correct port and ack number to use in the command above. 
+The following image shows an example of the last two packets received in the TCP dump in VM4 after the telnet login in VM2, and the correct port and ack number to use in the command above in this case. 
 ![Packets](packet.PNG)
 
 - 2.2.4. Check if connection is closed.
