@@ -45,7 +45,7 @@ We will experiment with three tools: tcpdump, Wireshark and nmap.
 ### 1.1. Tcpdump
 
 The program tcpdump allows you to listen to the local network (`$ man tcpdump` for more information).
-If needes, select "Allow All" in the advanced section of the network settings for promiscuous mode in Virtual Box, for the VM that you want to use to capture traffic.
+If needed, select "Allow All" in the advanced section of the network settings for promiscuous mode in Virtual Box, for the VM that you want to use to capture traffic.
 Run tcpdump in VM2 and detect the packet ICMP (using `ping -c 1`) from VM3 to VM4.
 To identify the header, the IP address, the MAC address and the protocol in use:
 
@@ -53,7 +53,7 @@ To identify the header, the IP address, the MAC address and the protocol in use:
 
 - 1.1.1. Keeping tcpdump running, start a telnet connection between VM3 and VM4 (username: seed, password: dees).
 Read the username and password of the user.
-Observe that username and password appear letter by letter in different packets .  
+Observe that username and password appear letter by letter in different packets. Please notice that, some Telnet implementations send each keystroke as a separate packet and therefore, the password will not be clear despite still being there in plain text. See ["character at a time"](https://linux.die.net/man/1/telnet) to learn further.
 
         $ telnet <IP destination>
 
