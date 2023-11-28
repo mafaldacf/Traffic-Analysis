@@ -33,7 +33,7 @@ _Notes:_
 - If there are repeated MAC addresses, use the following command in the machine where you want to change the MAC address, for the adapter that is repeated:
 
 ```sh
-$ sudo /sbin/ip link set enp0s3 address 00:00:00:00:00:11
+$ sudo /sbin/ip link set eth0 address 00:00:00:00:00:11
 ```
 
 ## 1. Listening to the network
@@ -48,7 +48,7 @@ Run tcpdump in VM2 and detect the packet ICMP (using `ping -c 1`) from VM3 to VM
 To identify the header, the IP address, the MAC address and the protocol in use:
 
 ```sh
-$ sudo tcpdump -i enp0s8 -X -XX dst host <IP destination>
+$ sudo tcpdump -i eth1 -X -XX dst host <IP destination>
 ```
 
 - 1.1.1. Keeping tcpdump running, start a telnet connection between VM3 and VM4.
