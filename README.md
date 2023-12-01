@@ -22,7 +22,7 @@ After cloning, you should generate a new MAC address (on VirtualBox VM settings)
 Remember to run:
 
 ```sh
-$ sudo /etc/init.d/network-manager force-reload
+$ sudo systemctl restart NetworkManager
 ```
 
 _Notes:_
