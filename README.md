@@ -66,10 +66,10 @@ Observe that it is not possible to read the username or password.
 $ ssh <IP destination>
 ```
 
-If you need to install `ssh-server` in VM4 run:
+If you need to enable the SSH server in VM4 run:
 
 ```sh
-$ sudo apt install openssh-server
+$ sudo systemctl start ssh
 ```
 
 ### 1.2. Wireshark
@@ -82,9 +82,9 @@ The program wireshark has a similar functionality to that of tcpdump but provide
 $ sudo wireshark
 ```
 
-- 1.2.2. If you do not select the capturing interace when you start, go to the Capture -> Options menu;
+- 1.2.2. If you do not select the capturing interface when you start, go to the Capture -> Options menu;
 
-- 1.2.3. Choose interface enp0s8 (or the one being used to communicate);
+- 1.2.3. Choose interface `eth1` (or the one being used to communicate);
 
 - 1.2.4. Select:
   - Update list of packets in real time
@@ -192,8 +192,8 @@ before and after running the `packit` command above.
 - 2.1.4. After changing the ARP table in VM2, run
 
 ```sh
-$ sudo tcpdump -i enp0s3    # in VM3, or enp0s8 if enabled instead
-$ sudo tcpdump -i enp0s3    # in VM4, or enp0s8 if enabled instead
+$ sudo tcpdump -i eth0    # in VM3 
+$ sudo tcpdump -i eth0    # in VM4
 ```
 
 and try to ping `192.168.1.4` from VM2.
