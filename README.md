@@ -221,7 +221,7 @@ Bit 13 of the header indicates that the packet has the ACK (Acknowledge).
 - 2.2.3. Use scapy to send a packet of reset, from VM4 to one of the machines, using the correct sequence number:
 
 ```sh
-$ scapy
+$ sudo scapy
 >>> packet = IP(src='192.168.1.254', dst='192.168.1.1')/TCP(sport= <port>, dport=23, seq=<ack number>, flags='R')
 >>> send(packet)
 ```
